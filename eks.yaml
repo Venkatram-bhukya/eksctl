@@ -9,13 +9,21 @@ iam:
   withOIDC: true
 
 managedNodeGroups:
+
+# ✅ On-Demand (base capacity)
+- name: ondemand
+  instanceType: t3.medium
+  desiredCapacity: 1
+  minSize: 1
+  maxSize: 2
+
+# ✅ Spot (extra capacity)
 - name: spot
   instanceTypes:
     - t3.medium
     - t3a.medium
     - m5.large
     - m5a.large
-    - m5n.large
     - c5.large
   spot: true
   desiredCapacity: 2
